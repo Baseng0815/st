@@ -41,17 +41,17 @@ dist: clean
 	rm -rf st-$(VERSION)
 
 install: st
-	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	cp -f st $(DESTDIR)$(PREFIX)/bin
-	chmod 755 $(DESTDIR)$(PREFIX)/bin/st
-	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
-	sed "s/VERSION/$(VERSION)/g" < st.1 > $(DESTDIR)$(MANPREFIX)/man1/st.1
-	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/st.1
+	mkdir -p $(DESTDIR)/bin
+	cp -f st $(DESTDIR)/bin
+	chmod 755 $(DESTDIR)/bin/st
+	mkdir -p $(DESTDIR)/man1
+	sed "s/VERSION/$(VERSION)/g" < st.1 > $(DESTDIR)/man1/st.1
+	chmod 644 $(DESTDIR)/man1/st.1
 	tic -sx st.info
 	@echo Please see the README file regarding the terminfo entry of st.
 
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/bin/st
-	rm -f $(DESTDIR)$(MANPREFIX)/man1/st.1
+	rm -f $(DESTDIR)/bin/st
+	rm -f $(DESTDIR)/man1/st.1
 
 .PHONY: all options clean dist install uninstall
