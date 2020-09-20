@@ -10,6 +10,7 @@
 static char *font = "Source Code Pro:pixelsize=18:antialias=true;autohint=true";
 static char *font2 = { "JoyPixels:pixelsize=14:antialias=true:autohint=true" };
 static int borderpx = 2;
+#define histsize 2000
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -196,14 +197,20 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
+	/* { TERMMOD,           XK_Prior,       zoom,           {.f = +1} }, */
+	/* { TERMMOD,           XK_Next,        zoom,           {.f = -1} }, */
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+
+	{ TERMMOD,              XK_K,           kscrollup,      {.i = -1} },
+	{ TERMMOD,              XK_J,           kscrolldown,    {.i = -1} },
+	{ TERMMOD,              XK_L,           zoom,           {.f = +1} },
+	{ TERMMOD,              XK_H,           zoom,           {.f = -1} },
+	{ TERMMOD,              XK_Escape,      keyboard_select,{ 0 } }
 };
 
 /*
