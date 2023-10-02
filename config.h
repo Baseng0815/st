@@ -235,8 +235,12 @@ static MouseShortcut mshortcuts[] = {
 /*         "/usr/bin/nvim", "externalpipe", NULL */
 /* }; */
 
+static char *openeditorcmd[] = {
+        "/bin/sh", "-c", "st-editscreen", "externalpipe", NULL
+};
+
 static char *openurlcmd[] = {
-        "/bin/sh", "-c", "nvim", "externalpipe", NULL
+        "/bin/sh", "-c", "st-linkgrabber", "externalpipe", NULL
 };
 
 static Shortcut shortcuts[] = {
@@ -258,7 +262,8 @@ static Shortcut shortcuts[] = {
         { TERMMOD,              XK_J,           kscrolldown,    {.i = -1} },
         { TERMMOD,              XK_L,           zoom,           {.f = +1} },
         { TERMMOD,              XK_H,           zoom,           {.f = -1} },
-        { TERMMOD,              XK_N,           externalpipe,   {.v = openurlcmd} },
+        { TERMMOD,              XK_N,           externalpipe,   {.v = openeditorcmd} },
+        { TERMMOD,              XK_U,           externalpipe,   {.v = openurlcmd} },
         { TERMMOD,              XK_S,           keyboard_select,{ 0 } }
 };
 
